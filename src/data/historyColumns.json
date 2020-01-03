@@ -1,0 +1,44 @@
+{
+  "columns": [
+    {
+      "title": "Year",
+      "dataIndex": "year"
+    },
+    {
+      "title": "Mintage",
+      "dataIndex": "mintage"
+    },
+    {
+      "title": "G",
+      "dataIndex": "good"
+    },
+    {
+      "title": "VG",
+      "dataIndex": "veryGood"
+    },
+    {
+      "title": "F",
+      "dataIndex": "fine"
+    },
+    {
+      "title": "VF",
+      "dataIndex": "veryFine"
+    },
+    {
+      "title": "XF",
+      "dataIndex": "extremelyFine"
+    },
+    {
+      "title": "AU",
+      "dataIndex": "almostUncirculated"
+    },
+    {
+      "title": "UNC",
+      "dataIndex": "uncirculated"
+    },
+    {
+      "title": "Frequency",
+      "dataIndex": "frequency"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "ruler": "Leopold II",
+  "country": "Belgium",
+  "countryCode": "BE",
+  "year": 1868,
+  "currency": "BEF",
+  "weight": 25,
+  "diameter": 37,
+  "thickness": 3,
+  "composition": "Au",
+  "value": 5,
+  "imageObverse": {
+    "small": "/images/1459-360.jpg",
+    "original": "/images/1459-original.jpg",
+    "originalWidth": 499,
+    "originalHeight": 492
+  },
+  "imageReverse": {
+    "small": "/images/1461-360.jpg",
+    "original": "/images/1461-original.jpg",
+    "originalWidth": 496,
+    "originalHeight": 492
+  },
+  "history": [
+    {
+      "key": 1865,
+      "year": 1865,
+      "mintage": 1221,
+      "good": "-",
+      "veryGood": "-",
+      "fine": "-",
+      "veryFine": 450.00,
+      "extremelyFine": 700.00,
+      "almostUncirculated": "-",
+      "uncirculated": "-",
+      "frequency": "13%"
+    },
+    {
+      "key": 1866,
+      "year": 1866,
+      "mintage": 2276,
+      "good": "-",
+      "veryGood": "-",
+      "fine": "-",
+      "veryFine": 700.00,
+      "extremelyFine": 1200.00,
+      "almostUncirculated": "-",
+      "uncirculated": "-",
+      "frequency": "5%"
+    },
+    {
+      "key": 1867,
+      "year": 1867,
+      "mintage": 3693,
+      "good": "-",
+      "veryGood": "-",
+      "fine": "-",
+      "veryFine": 25.00	,
+      "extremelyFine": 80.00,
+      "almostUncirculated": "-",
+      "uncirculated": "-",
+      "frequency": "31%"
+    },
+    {
+      "key": 1868,
+      "year": 1858,
+      "mintage": 6751,
+      "good": "-",
+      "veryGood": "-",
+      "fine": "-",
+      "veryFine": 150.00,
+      "extremelyFine": 350.00,
+      "almostUncirculated": "-",
+      "uncirculated": "-",
+      "frequency": "51%"
+    }
+  ]
+}

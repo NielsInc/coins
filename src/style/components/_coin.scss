@@ -1,0 +1,60 @@
+.coin {
+  &__title {
+    font-size: 2.8rem;
+    font-weight: $bold;
+    margin-bottom: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    padding: 1rem 0;
+  }
+
+  &__layout {
+    background-color: $white;
+  }
+}
+
+.coin-visuals {
+  flex-basis: 66.66%;
+  display: flex;
+}
+
+.coin__image{
+  max-width: 50%;
+
+  &--enlarged{
+    z-index: $top;
+  }
+}
+
+.coin-details {
+  flex-basis: 33.33%;
+}
+
+.coin-specs{
+  width: 100%;
+  &__item{
+    display: flex;
+    padding: .3rem  .5rem;
+    &:nth-child(even){
+      background-color: $light-grey;
+    }
+    &-title{
+      font-weight: bold;
+      width: 40%;
+    }
+    &-value{
+      width: 60%;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.coin-features {
+  &__country {
+    img {
+      padding-right: .3rem;
+    }
+  }
+}
