@@ -1,9 +1,9 @@
-#Coins
+# Coins
 ![Coins screenshot](/md-img/coins.png)
-##What is coins?
+## What is coins?
 Coins is a Coin database to manage your coin collection
 
-###Technologies
+### Technologies
 * React
 * React Router 
 * Progressive Web App (offline storage)
