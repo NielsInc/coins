@@ -1,6 +1,6 @@
 import React from 'react';
 import CoinFeatures from "./CoinFeatures";
-import {Breadcrumb, Icon, PageHeader, Table} from 'antd';
+import {Breadcrumb, Icon, Table} from 'antd';
 import * as coinHistory from "../data/historyColumns"
 import ReactImageMagnify from "react-image-magnify";
 import {Link} from "react-router-dom";
@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 class CoinDetail extends React.Component {
 
     render() {
-        const {title, country, countryCode, year, imageObverse, imageReverse, history} = this.props;
+        const {title, country, ruler, details, year, imageObverse, imageReverse, history, value} = this.props;
         return (
             <div className="coin">
                 <Breadcrumb className="breadcrumb">
@@ -26,29 +26,41 @@ class CoinDetail extends React.Component {
                     <Breadcrumb.Item>{title}</Breadcrumb.Item>
                 </Breadcrumb>
                 <h1 className="coin__title">{title}</h1>
-                <CoinFeatures country={country} countryCode={countryCode} year={year}/>
+                <CoinFeatures country={country} year={year}/>
                 <div className="coin__wrapper">
                     <div className="coin-visuals">
                         <ReactImageMagnify className="coin__image coin__image-reverse"
                                            isFluidWidth={true}
                                            enlargedImageContainerClassName="coin__image--enlarged"
-                                           smallImage={{src: process.env.PUBLIC_URL + imageObverse.small,}}
+                                           enlargedImageContainerDimensions={{
+                                               width: '100%',
+                                               height: '100%'
+                                           }}
+                                           smallImage={{
+                                               src: process.env.PUBLIC_URL + imageObverse.reference, isFluidWidth: true,
+                                           }}
                                            largeImage={
                                                {
-                                                   src: process.env.PUBLIC_URL + imageObverse.original,
-                                                   width: imageObverse.originalWidth,
-                                                   height: imageObverse.originalHeight
+                                                   src: process.env.PUBLIC_URL + imageObverse.archive,
+                                                   width: 1000,
+                                                   height: 1000
                                                }
                                            }/>
                         <ReactImageMagnify className="coin__image coin__image-obverse"
                                            isFluidWidth={true}
                                            enlargedImageContainerClassName="coin__image--enlarged"
-                                           smallImage={{src: process.env.PUBLIC_URL + imageReverse.small}}
+                                           enlargedImageContainerDimensions={{
+                                               width: '100%',
+                                               height: '100%'
+                                           }}
+                                           smallImage={{
+                                               src: process.env.PUBLIC_URL + imageReverse.reference, isFluidWidth: true,
+                                           }}
                                            largeImage={
                                                {
-                                                   src: process.env.PUBLIC_URL + imageReverse.original,
-                                                   width: imageReverse.originalWidth,
-                                                   height: imageReverse.originalHeight
+                                                   src: process.env.PUBLIC_URL + imageReverse.archive,
+                                                   width: 1000,
+                                                   height: 1000
                                                }
                                            }/>
                     </div>
@@ -57,48 +69,40 @@ class CoinDetail extends React.Component {
                         <dl className="coin-specs">
                             <div className="coin-specs__item">
                                 <dt className="coin-specs__item-title">Country</dt>
-                                <dd className="coin-specs__item-value">Belgium</dd>
+                                <dd className="coin-specs__item-value">{country}</dd>
                             </div>
                             <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">King</dt>
-                                <dd className="coin-specs__item-value">Leopold II</dd>
+                                <dt className="coin-specs__item-title">Year</dt>
+                                <dd className="coin-specs__item-value">{year}</dd>
                             </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Type</dt>
-                                <dd className="coin-specs__item-value">Standard circulation coin</dd>
-                            </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Years</dt>
-                                <dd className="coin-specs__item-value">1865-1868</dd>
-                            </div>
+                            {!!ruler ?
+                                <div className="coin-specs__item">
+                                    <dt className="coin-specs__item-title">King</dt>
+                                    <dd className="coin-specs__item-value">{ruler}</dd>
+                                </div> : null
+                            }
+                            {!!details?.dateRange?.from && !!details?.dateRange?.to ?
+                                <div className="coin-specs__item">
+                                    <dt className="coin-specs__item-title">Years</dt>
+                                    <dd className="coin-specs__item-value">{`${details?.dateRange?.from}-${details?.dateRange?.to}`}</dd>
+                                </div> : null
+                            }
                             <div className="coin-specs__item">
                                 <dt className="coin-specs__item-title">Value</dt>
-                                <dd className="coin-specs__item-value">5 Frank (5 BEF)</dd>
+                                <dd className="coin-specs__item-value">{value}</dd>
                             </div>
                             <div className="coin-specs__item">
                                 <dt className="coin-specs__item-title">Composition</dt>
-                                <dd className="coin-specs__item-value">Silver (.900)</dd>
+                                <dd className="coin-specs__item-value">{details.material}</dd>
                             </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Weight</dt>
-                                <dd className="coin-specs__item-value">25 g</dd>
-                            </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Diameter</dt>
-                                <dd className="coin-specs__item-value">37 mm</dd>
-                            </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Thickness</dt>
-                                <dd className="coin-specs__item-value">3 g</dd>
-                            </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Shape</dt>
-                                <dd className="coin-specs__item-value">Round</dd>
-                            </div>
-                            <div className="coin-specs__item">
-                                <dt className="coin-specs__item-title">Demonetized</dt>
-                                <dd className="coin-specs__item-value">1932</dd>
-                            </div>
+                            {!!details?.weight ?
+                                <div className="coin-specs__item">
+                                    <dt className="coin-specs__item-title">Weight</dt>
+                                    <dd className="coin-specs__item-value">{details.weight}</dd>
+                                </div> : null
+                            }
+
+
                         </dl>
                     </div>
                 </div>
